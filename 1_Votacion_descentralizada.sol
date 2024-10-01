@@ -74,5 +74,25 @@ pragma solidity >=0.8.2 <0.9.0;
     function votar(uint256 indicePropu) public soloWhitelist soloDuranteVotacion yaVoto {
         propuestas[indicePropu].votosTotales += 1;
         sufragantes[msg.sender] = true;
+    }
+
+    //Retornar propuesta
+    function retornarPropuesta(uint256 indicePropu) public view returns (string memory nombre, uint256 votosTotales) {
+        Propuesta storage propuesta = propuestas[indicePropu];
+        return (propuesta.nombre, propuesta.votosTotales);
+    }
+
+    //funcion para retornar todas las propuestas
+    function getMyStructs() public view returns (Propuesta[] memory) {
+        Propuesta[] memory resultado = new Propuesta[](propuestas.length);
+        for (uint256 i = 0; i < propuestas.length; i++) {
+            resultado[i] = propuestas[i];
+        }
+        return resultado;
+    }
+
+    //Retornar cuantas propuestas se tienen
+    function retornarCuantasPropuestas() public view returns (uint256) {
+        return propuestas.length;
     } 
  }

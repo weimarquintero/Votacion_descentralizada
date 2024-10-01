@@ -44,6 +44,31 @@
 			},
 			{
 				"inputs": [],
+				"name": "getMyStructs",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombre",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "votosTotales",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Votacion.Propuesta[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "propietario",
 				"outputs": [
 					{
@@ -64,6 +89,43 @@
 					}
 				],
 				"name": "propuestas",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votosTotales",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "retornarCuantasPropuestas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "indicePropu",
+						"type": "uint256"
+					}
+				],
+				"name": "retornarPropuesta",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -173,11 +235,11 @@
 	},
 	"sources": {
 		"1_Votacion_descentralizada.sol": {
-			"keccak256": "0x6fa5b9e3db8b806dbc914d9706d606f5a03f80c6e55e6cb0c1268d01d840e416",
+			"keccak256": "0xfe41331b20cbdf829238a625a9a8c64a9df13510312727644e6079f9fcd701c8",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://2245c44ab56f239c6524c23b777da0b228cfa1ef035b4a3ad810977c007cc864",
-				"dweb:/ipfs/QmacyoxAYXbXncDoqrTq2VEnsmNnSU3n9NDS5V7oVKfiVW"
+				"bzz-raw://be1123c9c05445fe3fa620f50cb5d2b31ed1fc168d001fa70a0513a1b02b1797",
+				"dweb:/ipfs/QmeLhccgJaZGobqHMWacAizfD7eAFuncMsGkwxs1AJrhxe"
 			]
 		}
 	},
