@@ -60,5 +60,19 @@ pragma solidity >=0.8.2 <0.9.0;
         _;
     }
 
-    
+    //Adicionar direcciones a la whiteList
+    function adicionarDireccion(address sufra) public soloPropietario {
+        whiteList[sufra] = true;
+    }
+
+    //Adicionar propuestas a la lista
+    function adicionarPropuesta(string memory propu) public soloPropietario {
+        propuestas.push(Propuesta({nombre:propu,votosTotales:0}));
+    }
+
+    //proceso de votación
+    function votar(uint256 indicePropu) public soloWhitelist soloDuranteVotacion yaVoto {
+        propuestas[indicePropu].votosTotales += 1;
+        sufragantes[msg.sender] = true;
+    } 
  }

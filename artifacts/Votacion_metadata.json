@@ -17,6 +17,32 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sufra",
+						"type": "address"
+					}
+				],
+				"name": "adicionarDireccion",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "propu",
+						"type": "string"
+					}
+				],
+				"name": "adicionarPropuesta",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "propietario",
 				"outputs": [
@@ -88,6 +114,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "indicePropu",
+						"type": "uint256"
+					}
+				],
+				"name": "votar",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
@@ -134,11 +173,11 @@
 	},
 	"sources": {
 		"1_Votacion_descentralizada.sol": {
-			"keccak256": "0x183aef23e31ba038426b5284a0b67711117cf7c9b8b643c827ba225503c8c9c1",
+			"keccak256": "0x6fa5b9e3db8b806dbc914d9706d606f5a03f80c6e55e6cb0c1268d01d840e416",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://eff8b5c7c22b935c68de30f5ce7e3b1abf0bbdeb754cd19968c155fc4def142a",
-				"dweb:/ipfs/QmPAbBmQ1k63cMPrD2TXoadgC3e3BWfzZk7rKDSpqrsDDE"
+				"bzz-raw://2245c44ab56f239c6524c23b777da0b228cfa1ef035b4a3ad810977c007cc864",
+				"dweb:/ipfs/QmacyoxAYXbXncDoqrTq2VEnsmNnSU3n9NDS5V7oVKfiVW"
 			]
 		}
 	},
