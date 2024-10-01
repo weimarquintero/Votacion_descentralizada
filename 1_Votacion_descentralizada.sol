@@ -13,8 +13,10 @@ pragma solidity >=0.8.2 <0.9.0;
     de la propuesta) y un contador de votos (que ha recibido la propuesta).*/
     struct Propuesta {
         string nombre;
-        uint8 votosTotales;
+        uint256 votosTotales;
     }
+    //Lista de propuestas
+    Propuesta[] public propuestas;
 
     /*Propietario del contrato: Quien ejecuta por primera vez el contrato. Es quien puede añadir propuestas y direcciones a la whiteList*/
     address public propietario;
@@ -25,9 +27,6 @@ pragma solidity >=0.8.2 <0.9.0;
     //Mapping para controlar que se vote solo una vez
     mapping(address => bool) public sufragantes;
 
-    //Lista de propuestas
-    Propuesta[] public propuestas;
-
     //Tiempo de ejecuccion total del contrato
     uint256 public tiempoVotacion;
 
@@ -36,4 +35,30 @@ pragma solidity >=0.8.2 <0.9.0;
         propietario = msg.sender;
         tiempoVotacion = block.timestamp + (duraccionContrato * 1 days);
     }
+
+    //Validar que solo el propietario ejecute las funciones de adicionar propuestas y sufragantes a la whiteList
+    modifier soloPropietario() {
+        require(msg.sender == propietario, "Solo el propietario puede ejecutar esta funcion.");
+        _;
+    }
+    
+    //Validar que solo las personas dentro de la whiteList puedan votar
+    modifier soloWhitelist() {
+        require(whiteList[msg.sender], "Solo las personas autorizadas pueden votar.");
+        _;
+    }
+
+    //Validar que la persona no haya votado - puesto que solo se puede votar una sola vez
+    modifier yaVoto() {
+        require(!sufragantes[msg.sender], "Usted ya voto.");
+        _;
+    }
+
+    //Validar que se pueda votar solo dentro del tiempo estipulado en el contrato - para este caso 3 dias
+    modifier soloDuranteVotacion() {
+        require(block.timestamp <= tiempoVotacion, "El periodo de votacion ha finalizado.");
+        _;
+    }
+
+    
  }
