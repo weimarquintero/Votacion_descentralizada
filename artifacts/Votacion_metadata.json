@@ -44,31 +44,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "getMyStructs",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "nombre",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "votosTotales",
-								"type": "uint256"
-							}
-						],
-						"internalType": "struct Votacion.Propuesta[]",
-						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "propietario",
 				"outputs": [
 					{
@@ -136,6 +111,31 @@
 						"internalType": "uint256",
 						"name": "votosTotales",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "retornarPropuestas",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombre",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "votosTotales",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Votacion.Propuesta[]",
+						"name": "",
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -235,11 +235,11 @@
 	},
 	"sources": {
 		"1_Votacion_descentralizada.sol": {
-			"keccak256": "0xfe41331b20cbdf829238a625a9a8c64a9df13510312727644e6079f9fcd701c8",
+			"keccak256": "0xd4dcd53de04465810aa2fdebba4392165baeb32201a55177573a99de307d0db0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://be1123c9c05445fe3fa620f50cb5d2b31ed1fc168d001fa70a0513a1b02b1797",
-				"dweb:/ipfs/QmeLhccgJaZGobqHMWacAizfD7eAFuncMsGkwxs1AJrhxe"
+				"bzz-raw://1f471039f4ce35927c56563c6cd28240e945dfe6212cf0847132df13f17643b8",
+				"dweb:/ipfs/QmcS5FR5kvV9gCnZNo727gspeiidmPZG5f42MmhYJtDtR2"
 			]
 		}
 	},

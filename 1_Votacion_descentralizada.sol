@@ -83,7 +83,7 @@ pragma solidity >=0.8.2 <0.9.0;
     }
 
     //funcion para retornar todas las propuestas
-    function getMyStructs() public view returns (Propuesta[] memory) {
+    function retornarPropuestas() public view returns (Propuesta[] memory) {
         Propuesta[] memory resultado = new Propuesta[](propuestas.length);
         for (uint256 i = 0; i < propuestas.length; i++) {
             resultado[i] = propuestas[i];
