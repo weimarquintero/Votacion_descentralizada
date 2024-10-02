@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "duraccionContrato",
+						"name": "_duraccionContrato",
 						"type": "uint256"
 					}
 				],
@@ -20,11 +20,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "sufra",
+						"name": "_sufragante",
 						"type": "address"
 					}
 				],
-				"name": "adicionarDireccion",
+				"name": "adicionarAddress",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -33,7 +33,7 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "propu",
+						"name": "_propuesta",
 						"type": "string"
 					}
 				],
@@ -96,7 +96,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "indicePropu",
+						"name": "_indicePropuesta",
 						"type": "uint256"
 					}
 				],
@@ -177,7 +177,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "indicePropu",
+						"name": "_indicePropuesta",
 						"type": "uint256"
 					}
 				],
@@ -235,11 +235,11 @@
 	},
 	"sources": {
 		"1_Votacion_descentralizada.sol": {
-			"keccak256": "0xd4dcd53de04465810aa2fdebba4392165baeb32201a55177573a99de307d0db0",
+			"keccak256": "0xa5425a217a55f87cb0e76623002b8f3afdf709e2301f353ceab32e4d17c038b9",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://1f471039f4ce35927c56563c6cd28240e945dfe6212cf0847132df13f17643b8",
-				"dweb:/ipfs/QmcS5FR5kvV9gCnZNo727gspeiidmPZG5f42MmhYJtDtR2"
+				"bzz-raw://865cf63a5320d1945739addfbb68a972aea6fe5b1313b75638e8ae6d2fb5d670",
+				"dweb:/ipfs/QmTD94EE3bJeF9eE22mnnhG9bG1T9PJFGemKv769psyp98"
 			]
 		}
 	},

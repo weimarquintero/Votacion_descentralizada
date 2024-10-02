@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity >=0.8.2 <0.9.0;
+pragma solidity >=0.8.0;
 
 /**
  * @title Votacion (Descentralizada)
@@ -31,54 +31,60 @@ pragma solidity >=0.8.2 <0.9.0;
     uint256 public tiempoVotacion;
 
     //Constructor
-    constructor(uint256 duraccionContrato) {
+    constructor(uint256 _duraccionContrato) {
         propietario = msg.sender;
-        tiempoVotacion = block.timestamp + (duraccionContrato * 1 days);
+        tiempoVotacion = block.timestamp + (_duraccionContrato * 1 days);
+    }
+
+    //Validar que la address entregada no sea la Zero
+    modifier validarAddress(address _address) {
+        require(_address != address(0), "Address NO valida");
+        _;
     }
 
     //Validar que solo el propietario ejecute las funciones de adicionar propuestas y sufragantes a la whiteList
     modifier soloPropietario() {
-        require(msg.sender == propietario, "Solo el propietario puede ejecutar esta funcion.");
+        require(msg.sender == propietario, "Solo el propietario puede ejecutar esta funcion");
         _;
     }
     
     //Validar que solo las personas dentro de la whiteList puedan votar
     modifier soloWhitelist() {
-        require(whiteList[msg.sender], "Solo las personas autorizadas pueden votar.");
+        require(whiteList[msg.sender], "Solo las personas autorizadas pueden votar");
         _;
     }
 
     //Validar que la persona no haya votado - puesto que solo se puede votar una sola vez
     modifier yaVoto() {
-        require(!sufragantes[msg.sender], "Usted ya voto.");
+        require(!sufragantes[msg.sender], "Usted ya voto");
         _;
     }
 
     //Validar que se pueda votar solo dentro del tiempo estipulado en el contrato - para este caso 3 dias
     modifier soloDuranteVotacion() {
-        require(block.timestamp <= tiempoVotacion, "El periodo de votacion ha finalizado.");
+        require(block.timestamp <= tiempoVotacion, "El periodo de votacion ha finalizado");
         _;
     }
 
-    //Adicionar direcciones a la whiteList
-    function adicionarDireccion(address sufra) public soloPropietario {
-        whiteList[sufra] = true;
+    //Adicionar direcciones a la whiteList - se valida que no sea la address Zero y que sea el propietario quien la ejecute
+    function adicionarAddress(address _sufragante) public validarAddress(_sufragante) soloPropietario {
+        whiteList[_sufragante] = true;
     }
 
     //Adicionar propuestas a la lista
-    function adicionarPropuesta(string memory propu) public soloPropietario {
-        propuestas.push(Propuesta({nombre:propu,votosTotales:0}));
+    function adicionarPropuesta(string memory _propuesta) public soloPropietario {
+        propuestas.push(Propuesta({nombre:_propuesta,votosTotales:0}));
     }
 
     //proceso de votación
-    function votar(uint256 indicePropu) public soloWhitelist soloDuranteVotacion yaVoto {
-        propuestas[indicePropu].votosTotales += 1;
+    function votar(uint256 _indicePropuesta) public soloWhitelist soloDuranteVotacion yaVoto {
+        propuestas[_indicePropuesta].votosTotales += 1;
         sufragantes[msg.sender] = true;
     }
 
     //Retornar propuesta
-    function retornarPropuesta(uint256 indicePropu) public view returns (string memory nombre, uint256 votosTotales) {
-        Propuesta storage propuesta = propuestas[indicePropu];
+    function retornarPropuesta(uint256 _indicePropuesta) public view returns (string memory nombre, uint256 votosTotales) {
+        Propuesta storage propuesta = propuestas[_indicePropuesta];
         return (propuesta.nombre, propuesta.votosTotales);
     }
 
